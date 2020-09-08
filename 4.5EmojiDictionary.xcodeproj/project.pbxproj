@@ -15,6 +15,7 @@
 		2AC84CE925076BF700F8D304 /* __5EmojiDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84CE825076BF700F8D304 /* __5EmojiDictionaryTests.swift */; };
 		2AC84CF425076BF700F8D304 /* __5EmojiDictionaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84CF325076BF700F8D304 /* __5EmojiDictionaryUITests.swift */; };
 		2AC84D0225076D2C00F8D304 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84D0125076D2C00F8D304 /* Emoji.swift */; };
+		2AC84D042507CA2900F8D304 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AC84D032507CA2900F8D304 /* EmojiTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2AC84CF325076BF700F8D304 /* __5EmojiDictionaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = __5EmojiDictionaryUITests.swift; sourceTree = "<group>"; };
 		2AC84CF525076BF700F8D304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AC84D0125076D2C00F8D304 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		2AC84D032507CA2900F8D304 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				2AC84CD125076BF600F8D304 /* AppDelegate.swift */,
 				2AC84CD325076BF600F8D304 /* SceneDelegate.swift */,
 				2AC84CD725076BF600F8D304 /* Main.storyboard */,
+				2AC84D032507CA2900F8D304 /* EmojiTableViewController.swift */,
 				2AC84CDA25076BF700F8D304 /* Assets.xcassets */,
 				2AC84CDC25076BF700F8D304 /* LaunchScreen.storyboard */,
 				2AC84CDF25076BF700F8D304 /* Info.plist */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC84D042507CA2900F8D304 /* EmojiTableViewController.swift in Sources */,
 				2AC84D0225076D2C00F8D304 /* Emoji.swift in Sources */,
 				2AC84CD225076BF600F8D304 /* AppDelegate.swift in Sources */,
 				2AC84CD425076BF600F8D304 /* SceneDelegate.swift in Sources */,

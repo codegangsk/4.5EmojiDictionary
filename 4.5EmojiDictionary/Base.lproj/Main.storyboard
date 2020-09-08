@@ -9,7 +9,7 @@
         <!--Root View Controller-->
         <scene sceneID="6Na-ZJ-6eR">
             <objects>
-                <tableViewController id="92E-kP-NPa" sceneMemberID="viewController">
+                <tableViewController id="92E-kP-NPa" customClass="EmojiTableViewController" customModule="__5EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gZ4-XU-fjf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
