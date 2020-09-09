@@ -14,7 +14,7 @@ class EmojiTableViewController: UITableViewController {
         Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness"),
         Emoji(symbol: "😕", name: "Confused Face", description: "A confused, puzzled face.", usage: "unsure what to think; displeasure"),
         Emoji(symbol: "😍", name: "Heart Eyes", description: "A smiley face with hearts for eyes.", usage: "love of something; attractive"),
-        Emoji(symbol: "😆", name: "Chuckling Face", description: "An excited, mischieveous face", usage: "joy"),
+        Emoji(symbol: "😆", name: "Chuckling Face", description: "An excited, mischieveous face.", usage: "joy"),
         Emoji(symbol: "👮", name: "Police Officer", description: "A police officer wearing a blue cap with a gold badge.", usage: "person of authority"),
         Emoji(symbol: "🐇", name: "Rabbit", description: "A fluffy rabbit.", usage: "somthing fast"),
         Emoji(symbol: "🐢", name: "Turtle", description: "A little turtle.", usage: "something slow"),
@@ -50,4 +50,11 @@ class EmojiTableViewController: UITableViewController {
             return 0
         }
 }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
+        let emoji = emojis[indexPath.row]
+        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
+        cell.detailTextLabel?.text = emoji.description
+        return cell
+    }
 }
