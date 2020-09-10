@@ -39,40 +39,51 @@ class EmojiTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
 
 extension EmojiTableViewController {
-        override func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-        
-        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if section == 0 {
-                return emojis.count
-            } else {
-                return 0
-            }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
-            let emoji = emojis[indexPath.row]
-            cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
-            cell.detailTextLabel?.text = emoji.description
-            cell.showsReorderControl = true
-            return cell
+        
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return emojis.count
+        } else {
+            return 0
         }
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
+        let emoji = emojis[indexPath.row]
+        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
+        cell.detailTextLabel?.text = emoji.description
+        cell.showsReorderControl = true
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let emoji = emojis[indexPath.row]
+        print("\(emoji).symbol) \(indexPath)")
+    }
+    
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+          
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedEmoji = emojis.remove(at: sourceIndexPath.row)
+        emojis.insert(movedEmoji, at: destinationIndexPath.row)
+        tableView.reloadData()
     }
-        
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let emoji = emojis[indexPath.row]
-            print("\(emoji).symbol) \(indexPath)")
-        }
     
-      @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
-          let tableViewEditingMode = tableView.isEditing
-          
-          tableView.setEditing(!tableViewEditingMode, animated: true)
-      }
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
 }
