@@ -9,7 +9,8 @@
 import UIKit
 
 class EmojiTableViewController: UITableViewController {
-
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
     var emojis: [Emoji] = [
         Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness"),
         Emoji(symbol: "😕", name: "Confused Face", description: "A confused, puzzled face.", usage: "unsure what to think; displeasure"),
@@ -38,23 +39,40 @@ class EmojiTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true
     }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return emojis.count
-        } else {
-            return 0
-        }
 }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
-        let emoji = emojis[indexPath.row]
-        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
-        cell.detailTextLabel?.text = emoji.description
-        return cell
+
+extension EmojiTableViewController {
+        override func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
+        
+        override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            if section == 0 {
+                return emojis.count
+            } else {
+                return 0
+            }
     }
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
+            let emoji = emojis[indexPath.row]
+            cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
+            cell.detailTextLabel?.text = emoji.description
+            cell.showsReorderControl = true
+            return cell
+        }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    }
+        
+        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let emoji = emojis[indexPath.row]
+            print("\(emoji).symbol) \(indexPath)")
+        }
+    
+      @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+          let tableViewEditingMode = tableView.isEditing
+          
+          tableView.setEditing(!tableViewEditingMode, animated: true)
+      }
 }
