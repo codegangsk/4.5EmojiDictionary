@@ -11,28 +11,44 @@ import UIKit
 class EmojiTableViewController: UITableViewController {
     @IBOutlet weak var editButton: UIBarButtonItem!
     
-    var emojis: [Emoji] = [
-        Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness"),
+    var emojis: [[Emoji]] = [
+        [Emoji(symbol: "😀", name: "Grinning Face", description: "A typical smiley face.", usage: "happiness"),
         Emoji(symbol: "😕", name: "Confused Face", description: "A confused, puzzled face.", usage: "unsure what to think; displeasure"),
         Emoji(symbol: "😍", name: "Heart Eyes", description: "A smiley face with hearts for eyes.", usage: "love of something; attractive"),
         Emoji(symbol: "😆", name: "Chuckling Face", description: "An excited, mischieveous face.", usage: "joy"),
-        Emoji(symbol: "👮", name: "Police Officer", description: "A police officer wearing a blue cap with a gold badge.", usage: "person of authority"),
-        Emoji(symbol: "🐇", name: "Rabbit", description: "A fluffy rabbit.", usage: "somthing fast"),
+        Emoji(symbol: "👮", name: "Police Officer", description: "A police officer wearing a blue cap with a gold badge.", usage: "person of authority")
+        ],
+                           
+        [Emoji(symbol: "🐇", name: "Rabbit", description: "A fluffy rabbit.", usage: "somthing fast"),
         Emoji(symbol: "🐢", name: "Turtle", description: "A little turtle.", usage: "something slow"),
         Emoji(symbol: "🐘", name: "Elephant", description: "A gray elephant.", usage: "good memory"),
         Emoji(symbol: "🐶", name: "Dog", description: "A cuddly dog.", usage: "something energetic"),
-        Emoji(symbol: "🐱", name: "Cat", description: "A cute cat.", usage: "something cute"),
-        Emoji(symbol: "🍝", name: "Spaghetti", description: "A plate of spaghetti.", usage: "spaghetti"),
-        Emoji(symbol: "🎲", name: "Die", description: "A single die.", usage: "taking a risk, chance; game"),
-        Emoji(symbol: "⛺️", name: "Tent", description: "A small tent.", usage: "camping"),
+        Emoji(symbol: "🐱", name: "Cat", description: "A cute cat.", usage: "something cute")
+        ],
+        
+        [Emoji(symbol: "🍝", name: "Spaghetti", description: "A plate of spaghetti.", usage: "spaghetti"),
+        ],
+    
+        [Emoji(symbol: "🎲", name: "Die", description: "A single die.", usage: "taking a risk, chance; game"),
         Emoji(symbol: "📚", name: "Stack of Books",
            description: "Three colored books stacked on each other.",
-           usage: "homework, studying"),
-        Emoji(symbol: "💔", name: "Broken Heart",
+           usage: "homework, studying")
+        ],
+        
+        [Emoji(symbol: "⛺️", name: "Tent", description: "A small tent.", usage: "camping")
+        ],
+    
+        [Emoji(symbol: "📷", name: "Camera", description: "A black classic camera.", usage: "taking photos")
+        ],
+        
+        [Emoji(symbol: "💔", name: "Broken Heart",
            description: "A red, broken heart.", usage: "extreme sadness"),
         Emoji(symbol: "💤", name: "Snore",
-           description: "Three blue \'z\'s.", usage: "tired, sleepiness"),
-        Emoji(symbol: "🏁", name: "Checkered Flag", description: "A black-and-white checkered flag.", usage:"completion")
+           description: "Three blue \'z\'s.", usage: "tired, sleepiness")
+        ],
+        
+        [Emoji(symbol: "🏁", name: "Checkered Flag", description: "A black-and-white checkered flag.", usage:"completion")
+        ]
     ]
     
     override func viewDidLoad() {
@@ -47,28 +63,51 @@ class EmojiTableViewController: UITableViewController {
 
 extension EmojiTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 8
     }
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return emojis.count
+
+        if  section >= 0 && section <= 7 {
+            return emojis[section].count
         } else {
             return 0
         }
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmojiCell", for: indexPath)
-        let emoji = emojis[indexPath.row]
-        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
-        cell.detailTextLabel?.text = emoji.description
+        let emoji = emojis[indexPath.section]
+        cell.textLabel?.text = "\(emoji[indexPath.row].symbol) - \(emoji[indexPath.row].name)"
+        cell.detailTextLabel?.text = emoji[indexPath.row].description
         cell.showsReorderControl = true
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let emoji = emojis[indexPath.row]
-        print("\(emoji).symbol) \(indexPath)")
+        let emoji = emojis[indexPath.section]
+        print("\(emoji[indexPath.row].symbol) \(indexPath)")
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Smiley&People"
+        case 1:
+            return "Animals&Nature"
+        case 2:
+            return "Food&Drink"
+        case 3:
+            return "Activity"
+        case 4:
+            return "Travel&Places"
+        case 5:
+            return "Objects"
+        case 6:
+            return "Symbols"
+        default:
+            return "Flags"
+        }
     }
     
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
@@ -78,8 +117,8 @@ extension EmojiTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedEmoji = emojis.remove(at: sourceIndexPath.row)
-        emojis.insert(movedEmoji, at: destinationIndexPath.row)
+        let movedEmoji = emojis[sourceIndexPath.section].remove(at: sourceIndexPath.row)
+        emojis[destinationIndexPath.section].insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
     }
     
