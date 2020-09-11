@@ -15,10 +15,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmojiCell" id="bq1-z3-9Qd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmojiCell" id="bq1-z3-9Qd" customClass="EmojiTableViewCell" customModule="__5EmojiDictionary" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="63.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bq1-z3-9Qd" id="HkY-nU-ag5">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bq1-z3-9Qd" id="HkY-nU-ag5" customClass="EmojiTableViewCell" customModule="__5EmojiDictionary" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -58,6 +58,11 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="GIS-SI-oe5" secondAttribute="bottom" id="pgX-AX-PHy"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="HHt-2W-muY" id="Wa7-6a-m1K"/>
+                                    <outlet property="nameLabel" destination="rV9-UM-Jmg" id="5kG-ti-yWg"/>
+                                    <outlet property="symbolLabel" destination="O5C-9p-KiP" id="JSp-9F-tKr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
