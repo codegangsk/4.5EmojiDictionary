@@ -50,7 +50,9 @@ class EmojiTableViewController: UITableViewController {
         [Emoji(symbol: "🏁", name: "Checkered Flag", description: "A black-and-white checkered flag.", usage:"completion")
         ]
     ]
-    
+}
+
+extension EmojiTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.cellLayoutMarginsFollowReadableWidth = true
@@ -59,18 +61,30 @@ class EmojiTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-}
-
-extension EmojiTableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 8
     }
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        if  section >= 0 && section <= 7 {
-            return emojis[section].count
-        } else {
+        switch section {
+        case 0:
+            return emojis[0].count
+        case 1:
+            return emojis[1].count
+        case 2:
+            return emojis[2].count
+        case 3:
+            return emojis[3].count
+        case 4:
+            return emojis[4].count
+        case 5:
+            return emojis[5].count
+        case 6:
+            return emojis[6].count
+        case 7:
+            return emojis[7].count
+        default:
             return 0
         }
     }
@@ -104,14 +118,15 @@ extension EmojiTableViewController {
             return "Objects"
         case 6:
             return "Symbols"
-        default:
+        case 7:
             return "Flags"
+        default:
+            return ""
         }
     }
     
     @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
         let tableViewEditingMode = tableView.isEditing
-          
         tableView.setEditing(!tableViewEditingMode, animated: true)
     }
     
@@ -121,7 +136,17 @@ extension EmojiTableViewController {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            emojis[indexPath.section].remove(at: indexPath.row)
+            tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .automatic)
+        }
     }
+    
+}
+
+extension EmojiTableViewController {
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+          return .delete
+      }
 }
