@@ -62,6 +62,19 @@ extension EmojiTableViewController {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender:
+         Any?) {
+             if segue.identifier == "EditEmoji" {
+                 let indexPath = tableView.indexPathForSelectedRow!
+                 let emoji = emojis[indexPath.section][indexPath.row]
+                 let navController = segue.destination as!
+                    UINavigationController
+                 let addEditEmojiTableViewController =
+                    navController.topViewController as! AddEditEmojiTableViewController
+                 addEditEmojiTableViewController.emoji = emoji
+             }
+         }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 8
     }
@@ -137,7 +150,6 @@ extension EmojiTableViewController {
             tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .automatic)
         }
     }
-    
 }
 
 extension EmojiTableViewController {

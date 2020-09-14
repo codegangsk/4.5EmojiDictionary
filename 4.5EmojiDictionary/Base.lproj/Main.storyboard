@@ -94,7 +94,7 @@
         <!--Root View Controller-->
         <scene sceneID="nxx-70-7pk">
             <objects>
-                <tableViewController id="oIT-Jl-cbE" sceneMemberID="viewController">
+                <tableViewController id="oIT-Jl-cbE" customClass="AddEditEmojiTableViewController" customModule="__5EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="5Eg-Mj-7zS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,6 +207,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="4s2-DE-CSr"/>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="BXF-dg-atx" id="GLc-3K-tp6"/>
+                        <outlet property="nameTextField" destination="KpZ-C7-jgM" id="Ni4-8d-vsh"/>
+                        <outlet property="symbolTextField" destination="QRT-a9-KMM" id="IGD-g3-dqh"/>
+                        <outlet property="usageTextField" destination="RuH-6D-yG1" id="oQ2-aj-ZVr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BdY-im-9K1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
