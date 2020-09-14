@@ -16,7 +16,14 @@ class AddEditEmojiTableViewController: UITableViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var usageTextField: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    
+    @IBAction func textEditingChanged(_ sender: UITextField) {
+        updateSaveButtonState()
+    }
 }
+
 
 extension AddEditEmojiTableViewController {
     
@@ -29,5 +36,14 @@ extension AddEditEmojiTableViewController {
             descriptionTextField.text = emoji.description
             usageTextField.text = emoji.usage
         }
+        updateSaveButtonState()
+    }
+    
+    func updateSaveButtonState() {
+        let symbolText = symbolTextField.text ?? ""
+        let nameText = nameTextField.text ?? ""
+        let descriptionText = descriptionTextField.text ?? ""
+        let usageText = usageTextField.text ?? ""
+        saveButton.isEnabled = !symbolText.isEmpty && !nameText.isEmpty && !descriptionText.isEmpty && !usageText.isEmpty
     }
 }
