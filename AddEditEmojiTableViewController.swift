@@ -16,6 +16,9 @@ class AddEditEmojiTableViewController: UITableViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var usageTextField: UITextField!
+}
+
+extension AddEditEmojiTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,5 +30,4 @@ class AddEditEmojiTableViewController: UITableViewController {
             usageTextField.text = emoji.usage
         }
     }
-
 }

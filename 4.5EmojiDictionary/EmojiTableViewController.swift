@@ -150,6 +150,10 @@ extension EmojiTableViewController {
             tableView.deleteRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .automatic)
         }
     }
+    
+    @IBAction func unwindToEmojiTableView(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+    }
 }
 
 extension EmojiTableViewController {
