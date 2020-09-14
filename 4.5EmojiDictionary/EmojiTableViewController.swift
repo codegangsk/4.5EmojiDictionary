@@ -96,11 +96,6 @@ extension EmojiTableViewController {
         cell.showsReorderControl = true
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let emoji = emojis[indexPath.section]
-        print("\(emoji[indexPath.row].symbol) \(indexPath)")
-    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
