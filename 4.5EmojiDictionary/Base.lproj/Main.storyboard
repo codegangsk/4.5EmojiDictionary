@@ -100,10 +100,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
+                            <tableViewSection headerTitle="Section" id="Krf-qx-gk9">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="doN-1Y-OCn">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="doN-1Y-OCn" id="Aaw-Ec-9M4">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s7h-mF-s05">
+                                                    <rect key="frame" x="15" y="5" width="384" height="34"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="oIT-Jl-cbE" eventType="editingDidEnd" id="Qhu-WF-OyB"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="s7h-mF-s05" secondAttribute="trailing" constant="15" id="8be-K9-4AQ"/>
+                                                <constraint firstItem="s7h-mF-s05" firstAttribute="leading" secondItem="Aaw-Ec-9M4" secondAttribute="leading" constant="15" id="9qe-Np-bF5"/>
+                                                <constraint firstAttribute="bottom" secondItem="s7h-mF-s05" secondAttribute="bottom" constant="5" id="Z0Q-mZ-gSz"/>
+                                                <constraint firstItem="s7h-mF-s05" firstAttribute="top" secondItem="Aaw-Ec-9M4" secondAttribute="top" constant="5" id="nht-0a-aby"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Symbol" id="vx9-VH-evE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2mQ-xx-Vqb">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="155" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2mQ-xx-Vqb" id="1pa-g0-QV5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -131,7 +159,7 @@
                             <tableViewSection headerTitle="Name" id="aUc-WY-XE7">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0I4-Hx-7Qv">
-                                        <rect key="frame" x="0.0" y="155" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="254.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0I4-Hx-7Qv" id="Hlt-pH-3KF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -159,7 +187,7 @@
                             <tableViewSection headerTitle="Description" id="Gzf-rg-m0e">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5Kd-hz-1Py">
-                                        <rect key="frame" x="0.0" y="254.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="354" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Kd-hz-1Py" id="iLg-uK-ACt">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -187,7 +215,7 @@
                             <tableViewSection headerTitle="Usage" id="Wy1-gW-zYO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DQI-PY-6jd">
-                                        <rect key="frame" x="0.0" y="354" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="453.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DQI-PY-6jd" id="aYw-PU-hdv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -221,19 +249,21 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="4s2-DE-CSr">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="hUn-TX-kmN">
                             <connections>
-                                <segue destination="BnA-T7-TLJ" kind="unwind" unwindAction="unwindToEmojiTableView:" id="hNr-or-H06"/>
+                                <segue destination="BnA-T7-TLJ" kind="unwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="4NU-9z-Nd5"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="TqY-qu-W77">
                             <connections>
-                                <segue destination="BnA-T7-TLJ" kind="unwind" unwindAction="unwindToEmojiTableView:" id="3XJ-u3-49Y"/>
+                                <segue destination="BnA-T7-TLJ" kind="unwind" identifier="saveUnwind" unwindAction="unwindToEmojiTableViewWithSegue:" id="rkQ-pY-r9x"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="SectionTextField" destination="Krf-qx-gk9" id="hxg-4M-ONB"/>
                         <outlet property="descriptionTextField" destination="BXF-dg-atx" id="GLc-3K-tp6"/>
                         <outlet property="nameTextField" destination="KpZ-C7-jgM" id="Ni4-8d-vsh"/>
                         <outlet property="saveButton" destination="TqY-qu-W77" id="Uxs-Bq-Iq5"/>
+                        <outlet property="sectionTextField" destination="s7h-mF-s05" id="IuD-fA-xDJ"/>
                         <outlet property="symbolTextField" destination="QRT-a9-KMM" id="IGD-g3-dqh"/>
                         <outlet property="usageTextField" destination="RuH-6D-yG1" id="oQ2-aj-ZVr"/>
                     </connections>

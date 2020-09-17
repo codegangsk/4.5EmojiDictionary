@@ -9,12 +9,14 @@
 import Foundation
 
 struct Emoji {
+    var section: String
     var symbol: String
     var name: String
     var description: String
     var usage: String
     
-    init(symbol: String, name: String, description: String, usage: String) {
+    init(section: String, symbol: String, name: String, description: String, usage: String) {
+        self.section = section
         self.symbol = symbol
         self.name = name
         self.description = description
