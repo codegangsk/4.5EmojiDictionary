@@ -30,7 +30,6 @@ extension AddEditEmojiTableViewController {
         super.viewDidLoad()
         
         if let emoji = emoji {
-            
             sectionTextField.text = emoji.section
             symbolTextField.text = emoji.symbol
             nameTextField.text = emoji.name

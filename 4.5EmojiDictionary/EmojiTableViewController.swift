@@ -69,8 +69,7 @@ extension EmojiTableViewController {
         tableView.reloadData()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender:
-        Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditEmoji" {
             
             let indexPath = tableView.indexPathForSelectedRow!
@@ -122,21 +121,21 @@ extension EmojiTableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return emojis[section][0].section
+            return smileyAndPeopleData[0].section
         case 1:
-            return emojis[section][0].section
+            return animalsAndNatureData[0].section
         case 2:
-            return emojis[section][0].section
+            return foodAndDrinkData[0].section
         case 3:
-            return emojis[section][0].section
+            return activityData[0].section
         case 4:
-            return emojis[section][0].section
+            return travelAndPlacesData[0].section
         case 5:
-            return emojis[section][0].section
+            return objectData[0].section
         case 6:
-            return emojis[section][0].section
+            return symbolData[0].section
         case 7:
-            return emojis[section][0].section
+            return flagData[0].section
         default:
             return ""
         }
@@ -161,11 +160,11 @@ extension EmojiTableViewController {
     }
 
    
-        @IBAction func unwindToEmojiTableView(segue: UIStoryboardSegue) {
-            guard segue.identifier == "saveUnwind",
-                let sourceViewController = segue.source as?
-                AddEditEmojiTableViewController,
-                let emoji = sourceViewController.emoji else { return }
+    @IBAction func unwindToEmojiTableView(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveUnwind",
+            let sourceViewController = segue.source as?
+            AddEditEmojiTableViewController,
+            let emoji = sourceViewController.emoji else { return }
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow
             {
@@ -214,9 +213,6 @@ extension EmojiTableViewController {
     }
 }
 
-
-    
-    
 extension EmojiTableViewController {
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
